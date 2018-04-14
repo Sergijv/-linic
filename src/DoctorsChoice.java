@@ -2,13 +2,15 @@ import java.util.Scanner;
 
 public class DoctorsChoice {
     int userChoice = 0;
-    int increment=1;
+    int increment;
+    Doctor doctorChange;
+    int numberOfDate=0;
     DoctorsChoice(){
         System.out.println("Which kind of doctor are you searching");
         System.out.println("in our Clinic work:");
 
 
-     do {
+     do { increment=1;
          for (Doctor doctor : Doctor.doctorsList) {
              System.out.println(increment + " : " + doctor.doctorName);
              increment++;
@@ -23,9 +25,17 @@ public class DoctorsChoice {
          }
          if (userChoice > Doctor.doctorsList.size() - 1 || userChoice < 0)
              System.out.println("Wrong choice! Try again please!");
-         System.out.println("Your choice: " + Doctor.doctorsList.get(userChoice - 1).doctorName);
-         Doctor.doctorsList.get(userChoice - 1).doctorsSchedule.setScheduleDoctor();
-     }
+         else {
+             doctorChange=Doctor.doctorsList.get(userChoice - 1);
+             System.out.println("Your choice: " + doctorChange.doctorName);
+             numberOfDate=doctorChange.doctorsSchedule.getNumberScheduleDoctor();
+             Schedule.setDoctorsSchedule(numberOfDate,doctorChange.doctorsSchedule);
+             Doctor.doctorsList.set(userChoice - 1,doctorChange);
+             System.out.println(numberOfDate);       //
+             //doctorChange.doctorsSchedule.print();   //
+             break;
+         }
+         }
         while (! (userChoice==0));
     }
 }
