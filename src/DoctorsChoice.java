@@ -23,9 +23,8 @@ public class DoctorsChoice {
          }
          if (userChoice > Doctor.doctorsList.size() - 1 || userChoice < 0)
              System.out.println("Wrong choice! Try again please!");
-         System.out.println("Your choice: "+ Doctor.doctorsList.get(userChoice-1).doctorName);
-         //exit while???
-
+         System.out.println("Your choice: " + Doctor.doctorsList.get(userChoice - 1).doctorName);
+         Doctor.doctorsList.get(userChoice - 1).doctorsSchedule.setScheduleDoctor();
      }
         while (! (userChoice==0));
     }

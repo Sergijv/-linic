@@ -1,7 +1,9 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
- public class Schedule  {
+
+public class Schedule  {
 
    protected Map<String , Boolean > timeRegister = new HashMap();
     Schedule(Boolean inMorningWorkTime){
@@ -17,4 +19,13 @@ import java.util.Map;
             this.timeRegister.put("16-17",true);
         }
     }
-}
+    void setScheduleDoctor(){
+      //  System.out.println(this.toString());
+    }
+
+     void print(){
+         Set<String> timeSet = this.timeRegister.keySet();
+         for (int i=0; i<timeSet.size(); i++)
+       //  System.out.print(timeSet.);
+     }
+ }
