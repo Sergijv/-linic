@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class DoctorsChoice {
-    int userChoice = 0;
-    int increment;
-    Doctor doctorChange;
-    int numberOfDate=0;
+    class DoctorsChoice {
+    private int userChoice = 0;
+    private int increment;
+    private Doctor doctorChange;
+    private int numberOfDate=0;
     DoctorsChoice(){
         System.out.println("Which kind of doctor are you searching");
         System.out.println("in our Clinic work:");
@@ -31,8 +31,7 @@ public class DoctorsChoice {
              numberOfDate=doctorChange.doctorsSchedule.getNumberScheduleDoctor();
              Schedule.setDoctorsSchedule(numberOfDate,doctorChange.doctorsSchedule);
              Doctor.doctorsList.set(userChoice - 1,doctorChange);
-             System.out.println(numberOfDate);       //
-             //doctorChange.doctorsSchedule.print();   //
+             doctorChange.doctorsSchedule.print();
              break;
          }
          }
