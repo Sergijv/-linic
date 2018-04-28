@@ -37,13 +37,18 @@ class CabinetChoice {
             doc.doctorsSchedule.print();
         }
         System.out.println("Input number of Doctor:");
-        try {
-            Scanner sc = new Scanner(System.in);
-            userChoice = sc.nextInt();
+        do {
+            try {
+                Scanner sc = new Scanner(System.in);
+                userChoice = sc.nextInt();
+                cabDoctor = cabinetDoctors.get(userChoice);
+            } catch (Exception e) {
+                System.out.println("Wrong choice! Sorry!");
+            }
 
-        } catch (Exception e) { System.out.println("Wrong choice! Sorry!"); }
-        cabDoctor=cabinetDoctors.get(userChoice);
-        System.out.println("Your choice: " + cabDoctor.doctorName);
+        }
+        while (userChoice<0||userChoice>cabinetDoctors.size()-1);
+         System.out.println("Your choice: " + cabDoctor.doctorName);
         numberOfDate=cabDoctor.doctorsSchedule.getNumberScheduleDoctor();
         Schedule.setDoctorsSchedule(numberOfDate,cabDoctor.doctorsSchedule);
 
